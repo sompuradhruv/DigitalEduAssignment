@@ -1,0 +1,81 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow-lg">
+                <div class="card-header bg-warning text-dark text-center">
+                    <h3>Update Product</h3>
+                </div>
+                <div class="card-body">
+                    <!-- Success or error messages -->
+                    <div class="alert alert-success" *ngIf="successMsg">
+                        {{ successMsg }}
+                    </div>
+                    <div class="alert alert-danger" *ngIf="errorMsg">
+                        {{ errorMsg }}
+                    </div>
+
+                    <form (ngSubmit)="onUpdateProduct()">
+                        <div class="mb-4">
+                            <label class="form-label">Enter Product ID:</label>
+                            <input
+                                type="number"
+                                class="form-control"
+                                [(ngModel)]="productId"
+                                name="productId"
+                                required
+                                placeholder="Product ID"
+                            />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Enter Product Name:</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="name"
+                                name="name"
+                                placeholder="Product Name"
+                            />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Enter Product Price:</label>
+                            <input
+                                type="number"
+                                class="form-control"
+                                [(ngModel)]="price"
+                                name="price"
+                                placeholder="Product Price"
+                            />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Select Product Category:</label>
+                            <select
+                                class="form-control"
+                                [(ngModel)]="category"
+                                name="category"
+                            >
+                                <option value="">Select Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="kitchen appliances">Kitchen Appliances</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="clothing">Clothing</option>
+                            </select>
+                        </div>
+
+                        <div class="text-center">
+                            <button
+                                type="submit"
+                                class="btn btn-warning px-4 py-2 rounded-pill"
+                                [disabled]="!productId"
+                            >
+                                Update Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
